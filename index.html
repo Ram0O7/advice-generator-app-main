@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Advice generator app</title>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Manrope:wght@800&family=Montserrat:wght@700&family=Outfit:wght@300;400;600&family=Overpass:wght@400;700&family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: hsl(218, 23%, 16%);
+  font-family: 'Manrope',sans-serif;
+}
+.main{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 270px;
+  width: 400px;
+  border-radius: 10px;
+  background-color: gray;
+  background-color: hsl(217, 19%, 24%);
+  padding: 30px;
+}
+img{
+  width: 100%;
+}
+#divider{
+  margin-bottom: -35px;
+}
+#main-para{
+  color: hsl(193, 38%, 86%);
+  font-size: 20px;
+  text-align: center;
+}
+button{
+  padding-top: 3px;
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 50%;
+  margin-bottom: -50px;
+  background-color: rgba(0, 255, 255, 0.86);
+}
+button:hover{
+  cursor: pointer;
+  box-shadow: 0 0 25px rgb(0, 255, 255, 0.86);
+}
+button img{
+  width: 15px;
+}
+#advice-id{
+  font-size: 10px;
+  color: rgb(0, 255, 255, 0.86);
+  letter-spacing: 3px;
+}
+@media (max-width:400px) {
+  .main{
+    width: 350px;
+    padding: 15px;
+  }
+  button{
+    margin-bottom:-35px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Advice #Advice ID goes here -->
+    <div class="main">
+      <span id="advice-id">ADVICE #0</span>
+      <h3 id="main-para">"Stay Hungry Stay Foolish."</h3>
+      <img id="divider" src="images/pattern-divider-desktop.svg" alt="pattern-divider-desktop">
+      <button><img src="images/icon-dice.svg" alt="dice-icon"></button>
+    </div>
+
+  <script>
+    const respara = document.getElementById('main-para');
+    const resid = document.getElementById('advice-id');
+    const btn = document.body.querySelector('button')
+console.log(respara);
+
+btn.addEventListener("click",() =>{
+  fetch('https://api.adviceslip.com/advice').then(response => {
+      return response.json();
+  }).then(adviceData => {
+      const adviceObj = adviceData.slip;
+      respara.innerText= " \"" + adviceObj.advice + "\" ";
+      resid.innerText= "ADVICE #" + adviceObj.id;
+      console.log(adviceObj);
+  }).catch(error => {
+      console.log(error);
+  });
+});
+
+  </script>
+
+</body>
+</html>
