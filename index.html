@@ -30,8 +30,8 @@ body{
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 270px;
-  width: 400px;
+  height: 350px;
+  width: 450px;
   border-radius: 10px;
   background-color: gray;
   background-color: hsl(217, 19%, 24%);
@@ -40,13 +40,20 @@ body{
 img{
   width: 100%;
 }
-#divider{
-  margin-bottom: -35px;
+.main-content{
+  text-align: center;
+}
+.other{
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  align-items: center;
+  margin-bottom: -50px;
 }
 #main-para{
   color: hsl(193, 38%, 86%);
-  font-size: 20px;
-  text-align: center;
+  font-size: 25px;
+  margin-top: 30px;
 }
 button{
   padding-top: 3px;
@@ -54,7 +61,6 @@ button{
   width: 40px;
   border: none;
   border-radius: 50%;
-  margin-bottom: -50px;
   background-color: rgba(0, 255, 255, 0.86);
 }
 button:hover{
@@ -69,13 +75,17 @@ button img{
   color: rgb(0, 255, 255, 0.86);
   letter-spacing: 3px;
 }
-@media (max-width:400px) {
+@media (max-width:500px) {
   .main{
-    width: 350px;
+    width: 370px;
+    height: 300px;
     padding: 15px;
   }
-  button{
-    margin-bottom:-35px;
+  #main-para{
+    font-size: 22px;
+  }
+  .other{
+    margin-bottom: -35px;
   }
 }
 
@@ -85,10 +95,14 @@ button img{
 
   <!-- Advice #Advice ID goes here -->
     <div class="main">
-      <span id="advice-id">ADVICE #0</span>
-      <h3 id="main-para">"Stay Hungry Stay Foolish."</h3>
-      <img id="divider" src="images/pattern-divider-desktop.svg" alt="pattern-divider-desktop">
-      <button><img src="images/icon-dice.svg" alt="dice-icon"></button>
+      <div class="main-content">
+        <span id="advice-id">ADVICE #0</span>
+        <h3 id="main-para">"Stay Hungry Stay Foolish."</h3>
+      </div>
+      <div class="other">
+        <img id="divider" src="images/pattern-divider-desktop.svg" alt="pattern-divider-desktop">
+        <button><img src="images/icon-dice.svg" alt="dice-icon"></button>
+      </div>
     </div>
 
   <script>
