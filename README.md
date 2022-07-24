@@ -24,7 +24,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [solution URL]()
-- Live Site URL: [live site URL]()
+- Live Site URL: [live site URL](https://ram0o7.github.io/advice-generator-app-main/)
 
 
 ## Author
